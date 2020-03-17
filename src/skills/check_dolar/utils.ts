@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Chance from 'chance';
+import { getRandom } from '../../utils';
 
 export const getCurrency = async (): Promise<number> => {
     const currencyAPI = axios.create({ baseURL: process.env.CURRENCY_API });
@@ -16,12 +16,11 @@ export const getCurrency = async (): Promise<number> => {
 export const getAnswer = async () => {
     const curr = await getCurrency();
     const baseStr = `Dólar ${curr}\n`;
-    const chance = new Chance();
     switch (true) {
         case curr < 4:
             return `${baseStr} Gran is sad ;(`;
         default:
-            return `${baseStr} ${randomStrings[chance.integer({ min: 0, max: randomStrings.length - 1 })]}`;
+            return `${baseStr} ${randomStrings[getRandom(0, randomStrings.length)]}`;
     }
 };
 
@@ -31,5 +30,5 @@ const randomStrings = [
     'California girls ༼ つ ◕_◕ ༽つ',
     'PC 20K INCOMING??',
     'Vamo de importação? ;)',
-    'Luise requer produtos coreanos..........'
+    'Luise requer produtos coreanos..........',
 ];

@@ -1,4 +1,4 @@
-FROM node:13
+FROM node:13.10.1
 
 COPY . /app
 
@@ -6,4 +6,4 @@ WORKDIR /app
 
 RUN npm install
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "prod"]
