@@ -20,7 +20,7 @@ export const getAnswer = async () => {
         case curr < 4:
             return `${baseStr} Gran is sad ;(`;
         default:
-            return `${baseStr} ${randomStrings[getRandom(0, randomStrings.length)]}`;
+            return `${baseStr} ${randomStrings[getRandom(0, randomStrings.length - 1)]}`;
     }
 };
 
