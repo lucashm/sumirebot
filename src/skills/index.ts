@@ -1,3 +1,3 @@
-import check_dolar from './check_dolar';
+import ping from './ping';
 
-export default [check_dolar];
+export default [ping];
